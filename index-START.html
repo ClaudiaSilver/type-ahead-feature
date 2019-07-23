@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+// Fetch the data (array), then filter it down to a subset matching the user input (city or state)
+const cities = [];
+// fetch returns a promise
+fetch(endpoint)
+  .then(blob => blob.json())
+  // how can we get each item to go into the cities array? Push and spread! 
+  .then(data =>cities.push(...data))
+//filtering the data
+function findMatches(wordToMatch, cities) {
+  return cities.filter(place => {
+    // how can we put a var into a regex?
+    const regex = new RegExp(wordToMatch, 'gi'); // creates a regex object for matching text with a pattern
+    return place.cities.match(regex) || place.state.match(regex) // the match method retrieves the result of matching a string against a regex
+  });
+}
+
+//Display function:
+function displayMatches() {
+  
+}
+
+
+</script>
+</body>
+</html>
