@@ -1,3 +1,30 @@
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+}
+
+button {
+  width: 150px;
+  height: 80px;
+  position: relative;
+  top: 10px;
+  font-size: 18px;
+  border: 5px solid #F7F7F7;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  background-color: white;
+}
+
+button:hover {
+
+}
+
+button:focus {
+
+}
+
 html {
   box-sizing: border-box;
   background: #ffc600;
@@ -17,7 +44,9 @@ input {
 
 .search-form {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 50px; /*this sorts out the wrap*/
+  display: flex;
+  flex-direction: column;
 }
 
 input.search {
