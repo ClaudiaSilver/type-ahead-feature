@@ -3,6 +3,7 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
+  min-height: 100vh;
 }
 
 button {
@@ -10,25 +11,28 @@ button {
   height: 80px;
   position: relative;
   top: 10px;
-  font-size: 18px;
-  border: 5px solid #F7F7F7;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
-  background-color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  color: white;
+  background: rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-top: 1px solid rgba(255,255,255,.5);
+  box-shadow: 0 2px 2px rgba(0,0,0,.1);
 }
 
 button:hover {
+  box-shadow: 1px 4px 4px rgba(0,0,0,.1);
+  border-bottom: 2px solid rgba(0,0,0,.2);
+  border-top: 2px solid rgba(255,255,255,.5);
 
 }
 
-button:focus {
 
-}
 
 html {
   box-sizing: border-box;
-  background: #ffc600;
-  font-family: 'helvetica neue';
+  background: linear-gradient(#493657, #ce7da5, #ffd1ba);
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
   font-weight: 200;
 }
