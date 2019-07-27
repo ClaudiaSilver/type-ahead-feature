@@ -25,10 +25,7 @@ button:hover {
   border-bottom: 2px solid rgba(0,0,0,.2);
   border-top: 2px solid rgba(255,255,255,.5);
   text-shadow: 4px 4px 4px #493657;
-
 }
-
-
 
 html {
   box-sizing: border-box;
@@ -106,3 +103,20 @@ span.population {
 .hl {
   background: #ffc600;
 }
+
+
+.result-box {
+  display: none;
+}
+
+.result-box.is-visible {
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  position: absolute; 
+  right: 460px;
+  bottom: 100px;
+}
+
+

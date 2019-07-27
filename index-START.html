@@ -11,11 +11,13 @@
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
-      <li class>Filter for a city</li>
-      <li class>or a state</li>
+      <li >Filter for a city</li>
+      <li >or a state</li>
     </ul>
   </form>
-  <form class=search-form><button name ="reset">Reset</button></form>
+  <form class="search-form"><button name ="reset">Reset</button></form>
+  <div class="result-box"></div>
+  
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
@@ -43,7 +45,10 @@ function numberWithCommas(x) {
 //Display function, changes when input occurs
 function displayMatches() {
   //console.log(this.value); // this shows that search is the value to be targeted
+  const suggestions = document.querySelector('.suggestions');
+
   const matchArray = findMatches(this.value, cities);
+  
   
   // here the data will be displayed:
   const html = matchArray.map(place => {
@@ -61,20 +66,23 @@ function displayMatches() {
   }).join(''); // map returns array, join will turn it into a string
   suggestions.innerHTML = html; // sets the html content of an element
 
-  const searchResult = document.querySelectorAll('.suggestions li'); // returns a node list
+  const searchResult = document.querySelectorAll('li'); // returns a node list
   // iterate through node list and attach event listener to each element
   searchResult.forEach(el => {
-    el.addEventListener('click', function(){
-    console.log('hi');
-  })})
- 
+    el.addEventListener('mousedown', displayBox); // click is problematic here due to blur
+    //console.log('hi');
+  });
+}
+
+// this makes the box appear
+function displayBox() {
+      const box = document.querySelector('div');
+      console.log(box);
+      box.classList.add('is-visible');
   
-
-
 }
 
 const searchInput = document.querySelector('.search');
-const suggestions = document.querySelector('.suggestions');
 
 searchInput.addEventListener('change', displayMatches); // change only fires once user navigates away from input field!
 searchInput.addEventListener('keyup', displayMatches);
