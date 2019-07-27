@@ -11,8 +11,8 @@
   <form class="search-form">
     <input type="text" class="search" placeholder="City or State">
     <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
+      <li class>Filter for a city</li>
+      <li class>or a state</li>
     </ul>
   </form>
   <form class=search-form><button name ="reset">Reset</button></form>
@@ -42,9 +42,9 @@ function numberWithCommas(x) {
 
 //Display function, changes when input occurs
 function displayMatches() {
-  console.log(this.value); // this shows that search is the value to be targeted
+  //console.log(this.value); // this shows that search is the value to be targeted
   const matchArray = findMatches(this.value, cities);
-  console.log(matchArray);
+  
   // here the data will be displayed:
   const html = matchArray.map(place => {
   const regex = new RegExp(this.value, 'gi');
@@ -61,6 +61,16 @@ function displayMatches() {
   }).join(''); // map returns array, join will turn it into a string
   suggestions.innerHTML = html; // sets the html content of an element
 
+  const searchResult = document.querySelectorAll('.suggestions li'); // returns a node list
+  // iterate through node list and attach event listener to each element
+  searchResult.forEach(el => {
+    el.addEventListener('click', function(){
+    console.log('hi');
+  })})
+ 
+  
+
+
 }
 
 const searchInput = document.querySelector('.search');
@@ -68,9 +78,6 @@ const suggestions = document.querySelector('.suggestions');
 
 searchInput.addEventListener('change', displayMatches); // change only fires once user navigates away from input field!
 searchInput.addEventListener('keyup', displayMatches);
-
-
-
 
 </script>
 </body>
