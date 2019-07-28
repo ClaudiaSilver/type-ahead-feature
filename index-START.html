@@ -66,19 +66,24 @@ function displayMatches() {
   }).join(''); // map returns array, join will turn it into a string
   suggestions.innerHTML = html; // sets the html content of an element
 
-  const searchResult = document.querySelectorAll('li'); // returns a node list
+  const searchResult = document.querySelectorAll('li'); 
   // iterate through node list and attach event listener to each element
   searchResult.forEach(el => {
-    el.addEventListener('mousedown', displayBox); // click is problematic here due to blur
-    //console.log('hi');
-  });
-}
+    el.addEventListener('mousedown', displayBox);
+    });
+  };
 
-// this makes the box appear
-function displayBox() {
-      const box = document.querySelector('div');
-      console.log(box);
-      box.classList.add('is-visible');
+
+function displayBox(event) {
+  // this makes the box appear
+  const box = document.querySelector('div');
+  box.classList.add('is-visible');
+  // this sets the box's text:
+  // how can we display li text rather than span/child text?
+  const itemText = event.target.innerText; 
+  console.log(itemText);
+  const divBox = document.querySelector('.result-box');
+  divBox.innerHTML = itemText;
   
 }
 
