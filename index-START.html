@@ -76,11 +76,10 @@ function displayMatches() {
 
 function displayBox(event) {
   // this makes the box appear
-  const box = document.querySelector('div');
+  const box = document.querySelector('.result-box');
   box.classList.add('is-visible');
   // this sets the box's text:
-  // how can we display li text rather than span/child text?
-  const itemText = event.target.innerText; 
+  const itemText = event.currentTarget.innerHTML; //current target gets the whole element!
   console.log(itemText);
   const divBox = document.querySelector('.result-box');
   divBox.innerHTML = itemText;
