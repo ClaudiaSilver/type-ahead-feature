@@ -15,9 +15,10 @@
       <li >or a state</li>
     </ul>
   </form>
-  <form class="search-form"><button name ="reset">Reset</button></form>
-  <div class="result-box"></div>
-  
+  <form class="button-col">
+    <button name ="reset">Reset</button>
+    <div class="result-box"></div>
+  </form>
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
@@ -79,7 +80,7 @@ function displayBox(event) {
   const box = document.querySelector('.result-box');
   box.classList.add('is-visible');
   // this sets the box's text:
-  const itemText = event.currentTarget.innerHTML; //current target gets the whole element!
+  const itemText = event.currentTarget.textContent; //current target gets the whole element!
   console.log(itemText);
   const divBox = document.querySelector('.result-box');
   divBox.innerHTML = itemText;

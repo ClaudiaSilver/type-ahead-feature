@@ -27,6 +27,15 @@ button:hover {
   text-shadow: 4px 4px 4px #493657;
 }
 
+.button-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 50px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 html {
   box-sizing: border-box;
   background: linear-gradient(#493657, #ce7da5, #ffd1ba);
@@ -110,11 +119,8 @@ span.population {
 
 .result-box.is-visible {
   display: block;
-  width: 200px;
-  height: 200px;
-  position: absolute; 
-  right: 420px;
-  bottom: 200px;
+  width: 300px;
+  height: 300px;
   font-size: 16px;
   border-radius: 8px;
   color: black;
@@ -122,6 +128,7 @@ span.population {
   border-bottom: 1px solid rgba(0,0,0,.2);
   border-top: 1px solid rgb(255, 255, 255);
   box-shadow: 0 2px 2px rgba(248, 245, 245, 0.1);
+  margin-top: 100px;
 }
 
 
