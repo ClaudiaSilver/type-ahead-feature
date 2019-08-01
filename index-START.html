@@ -83,9 +83,12 @@ function displayBox(event) {
   box.classList.add('is-visible');
   // this sets the box's text: current target gets the whole element!
   const itemText = event.currentTarget.innerHTML.replace('hl','' );
-  console.log(itemText);
+  const newString = itemText.split(/\d+\,\d+\,\d+/);
+  const letterString = newString[0];
+  const numberString = newString[1];
+  console.log(numberString);
   const divBox = document.querySelector('.result-box');
-  divBox.innerHTML = '<span class=announcement>And the place with the highest number of beige sofas is...</span></br>'+itemText; //split string before number and add line break!
+  divBox.innerHTML = '<span class=announcement><p>And the place with the highest number of beige sofas is...</p></span>' + letterString + '<span class=announcement>with a population of</span>' + numberString; 
   
 }
 
