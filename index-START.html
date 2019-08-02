@@ -82,13 +82,17 @@ function displayBox(event) {
   const box = document.querySelector('.result-box');
   box.classList.add('is-visible');
   // this sets the box's text: current target gets the whole element!
-  const itemText = event.currentTarget.innerHTML.replace('hl','' );
-  const newString = itemText.split(/\d+\,\d+\,\d+/);
-  const letterString = newString[0];
-  const numberString = newString[1];
+  const itemText = event.currentTarget.textContent.replace('hl','' );
+  const numberRegex = /\d+\,\d+\,\d+/;
+  const numberString = itemText.match(numberRegex).join('');
   console.log(numberString);
+  const letterString = itemText.replace(numberRegex, '');
+  console.log(letterString);
+
+  
+ 
   const divBox = document.querySelector('.result-box');
-  divBox.innerHTML = '<span class=announcement><p>And the place with the highest number of beige sofas is...</p></span>' + letterString + '<span class=announcement>with a population of</span>' + numberString; 
+  divBox.innerHTML = '<span class=announcement><p>And the place with the highest number of beige sofas is...</p></span>' + letterString + '<span class=announcement><p>with a population of</p></span>' + numberString; 
   
 }
 
